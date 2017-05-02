@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="NTabs.css">
+</head>
+<body>
+    <section>
+        <div class="tabs">
+            <nav>
+                <ul>
+                    <li><a href="#section-bar-1"><span>Home</span></a></li>
+                    <li><a href="#section-bar-2"><span>Archive</span></a></li>
+                    <li><a href="#section-bar-3"><span>Analytics</span></a></li>
+                    <li><a href="#section-bar-4"><span>Upload</span></a></li>
+                    <li><a href="#section-bar-5"><span>Settings</span></a></li>
+                </ul>
+            </nav>
+            <div class="content-wrap">
+                <section id="section-bar-1">
+                    <p>1</p>
+                </section>
+                <section id="section-bar-2">
+                    <p>2</p>
+                </section>
+                <section id="section-bar-3">
+                    <p>3</p>
+                </section>
+                <section id="section-bar-4">
+                    <p>4</p>
+                </section>
+                <section id="section-bar-5">
+                    <p>5</p>
+                </section>
+            </div>
+            <!-- /content -->
+        </div>
+        <!-- /tabs -->
+    </section>
+    <script src="NTabs.js"></script>
+    <script>
+    var el = document.querySelector('.tabs');
+    new NTabs(el);
+    </script>
+</body>
+
+</html>

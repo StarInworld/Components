@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+    <div id="text" contenteditable="true">Some content, edit me!</div>
+    </div>
+    <div>
+        <input type="button" id="undo" value="undo">
+        <input type="button" id="redo" value="redo">
+    </div>
+    <script src="Undo.js"></script>
+    <script src="init.js"></script>
+    <script>
+    var stack = new Undo.Stack();
+
+    var text = document.getElementById('text'),
+        startValue = text.innerHTML,
+        timer;
+    var undo = document.getElementById('undo'),
+        redo = document.getElementById('redo');
+        
+    undo.addEventListener('click', function() {
+        stack.canUndo() && stack.undo();
+    });
+    redo.addEventListener('click', function() {
+        stack.canRedo() && stack.redo();
+    });
+    </script>
+</body>
+
+</html>
