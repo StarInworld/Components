@@ -33,11 +33,11 @@
         }
         var Undo = {
             version: '1.0'
-        }
+        };
         Undo.Stack = function() {
             this.commands = [];
             this.stackPosition = -1;
-        }
+        };
         extend(Undo.Stack.prototype, {
             execute: function(command) {
                 this._clearRedo();
@@ -66,7 +66,7 @@
 
         Undo.Command = function(name) {
             this.name = name;
-        }
+        };
 
         var err = new Error("override me!");
 
@@ -86,7 +86,7 @@
             var child = inherits(this, protoProps);
             child.extend = Undo.Command.extend;
             return child;
-        }
+        };
 
         this.Undo = Undo;
-    }).call(window)
+    }).call(window);
