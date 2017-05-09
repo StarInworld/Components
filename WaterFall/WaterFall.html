@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ch-zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WaterFull</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            height:100%;
+        }
+        li{
+            list-style-type:none;
+        }
+        .loading{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color: #eee;
+            text-align: center;
+            font-size: 30px;
+        }
+        .progress{
+            margin-top:300px;
+        }
+        #main{
+            position:relative;
+        }
+        .box{
+            padding:15px 0 0 15px;
+            float:left;
+        }
+        .pic{
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            box-shadow: 0 0 5px #eee;
+        }
+        .pic img{
+            width:180px;
+            height:auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/1.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/3.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/4.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/5.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/6.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/7.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/8.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/9.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/10.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/11.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/12.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/13.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/14.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/15.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/16.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/17.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/18.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/19.jpg" alt="">
+            </div>
+        </div>
+        <div class="box">
+            <div class="pic">
+                <img src="../public/img/20.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="loading">
+        <p class="progress">
+            0%
+        </p>
+    </div>
+    <script src="WaterFall.js"></script>
+    <script>
+        var imgs=[
+            '../public/img/1.jpg',
+            '../public/img/2.jpg',
+            '../public/img/3.jpg',
+            '../public/img/4.jpg',
+            '../public/img/5.jpg',
+            '../public/img/6.jpg',
+            '../public/img/7.jpg',
+            '../public/img/8.jpg',
+            '../public/img/9.jpg'
+        ];
+        var index = 0,
+            len = imgs.length,
+            count = 0,
+            progress = document.querySelector('.progress');
+        imgs.forEach(function(src,i){
+            setTimeout(function(){
+                var imgObj = new Image();
+
+                imgObj.onload = imgObj.onerror = function(){
+                    progress.innerHTML = Math.round((count+1)/len*100) + '%';
+
+                    if(count >= len-1){
+                        document.querySelector('.loading').style.visibility = 'hidden';
+                    }
+                    count++;
+                };
+
+                imgObj.src = src;
+            },100*i);
+        });
+        window.onload = function(){
+            var parent = document.getElementById('main');
+            WaterFall(parent,'box');
+        };
+    </script>
+</body>
+</html>

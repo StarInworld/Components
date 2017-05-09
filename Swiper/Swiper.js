@@ -1,12 +1,18 @@
 (function(){
-    var Swiper = function(imgBox,imgArr,arrow,btns,isgo){
+    var Swiper = function(options){
         this.count = 0;
-        this.imgBox = imgBox;
-        this.imgArr = imgArr;
-        this.arrow = arrow;
-        this.btns = btns;
-        this.isgo = isgo;
+        //包含所有图片的盒子
+        this.imgBox = options.imgBox;
+        //图片数组
+        this.imgArr = options.imgArr;
+        //左右切换按钮
+        this.arrow = options.arrow || null;
+        //图片切换按钮
+        this.btns = options.btns || null;
+        //false 向右/true 向左
+        this.isgo = options.isgo || false;
         this.timer = null;
+        this.init();
     };
     function extend(target,ref){
         var name,value;
@@ -23,8 +29,8 @@
         init:function(){
             this.currentBtn();
             this.play();
-            this.arrowEvt();
-            this.btnEvt();
+            this.arrow ? this.arrowEvt() :null;
+            this.btns ? this.btnEvt() :null;
         },
         //自动轮播
         play:function(){
@@ -85,7 +91,7 @@
                 _this.currentBtn();
             }
         },
-        //图片选择 按钮事件
+        //图片选择 hover事件
         btnEvt:function(){
             var _this = this;
             for(var a = 0;a < this.btns.length;a++){

@@ -35,8 +35,14 @@
             imgArr = document.querySelectorAll(".li_img"),
             arrow = document.querySelectorAll(".arrow"),
             btns = document.querySelectorAll(".div_btn");
-        var swiper = new Swiper(imgBox,imgArr,arrow,btns,false);
-        swiper.init();
+        var options = {
+            imgBox:imgBox,
+            imgArr:imgArr,
+            arrow:arrow,
+            btns:btns,
+            isgo:false
+        };
+        new Swiper(options);
     </script>
 </body>
 </html>
