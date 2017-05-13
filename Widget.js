@@ -3,6 +3,7 @@ define(function(){
         this.boundingBox = null;//属性：最外层容器
     }
     Widget.prototype={
+        //订阅事件
         on:function(type,handler){
             if(typeof this.handlers[type] == 'undefined'){
                 this.handlers[type] = [];

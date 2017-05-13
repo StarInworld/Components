@@ -6,7 +6,7 @@ require.config({
 });
 
 require(['jquery','window'],function($,w){
-    //注意事项：阻塞VS回调  如果希望事件A在点击按钮之后再执行，也就是阻塞之后执行，应该放在配置参数的btn事件中，this.delegate无法做到
+    //注意事项：阻塞VS回调  如果希望事件B在事件A执行之后再执行，也就是阻塞之后执行，应该放在同一个回调函数中，this.on('method',function(){A();B();})
     $('#a').click(function(){
         new w.Window().alert({
                     title:'提示',
@@ -41,6 +41,6 @@ require(['jquery','window'],function($,w){
             hasCloseBtn:true,
             // skinClassName:'window_skin_a',
             textConfirmBtn:'是'
-        }).on('confirm',function(){alert('you click ok twice')})
+        }).on('confirm',function(){alert('you click ok')})
     })
 });

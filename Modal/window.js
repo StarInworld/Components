@@ -38,7 +38,7 @@ define(['widget','jquery'],function(widget,$){
 
 
    Window.prototype = $.extend({},new widget.Widget(),{
-       renderUI:function(){
+       renderUI:function(container){
            var footerContent = '';
            switch(this.config.winType){
                case 'alert':
@@ -61,7 +61,7 @@ define(['widget','jquery'],function(widget,$){
            if(this.config.hasCloseBtn){
                this.boundingBox.append('<span class="window_closeBtn">X</span>');
            }
-           this.boundingBox.appendTo('body');
+           $(container || document.body).append(this.boundingBox);
        },
        bindUI:function(){
            var that = this;
