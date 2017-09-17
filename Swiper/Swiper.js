@@ -14,7 +14,7 @@
         this.timer = null;
         this.init();
     };
-    function extend(target,ref){
+    function _extend(target,ref){
         var name,value;
         for(name in ref){
             value = ref[name];
@@ -24,7 +24,7 @@
         }
         return target;
     }
-    extend(Swiper.prototype,{
+    _extend(Swiper.prototype,{
         //初始化轮播组件
         init:function(){
             this.currentBtn();
